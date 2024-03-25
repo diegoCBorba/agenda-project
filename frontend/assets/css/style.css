@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+:root{
+    --branco-padrao: rgb(255, 255, 255);
+    --preto-01: #363A40;
+    --preto-02: #34373D;
+    --preto-03: #282B30;
+    --azul-01: #2F828F;
+    --azul-02: #339AA6;
+    --vermelho-trans: rgba(255, 55, 55, 0.306);
+    --vermelho: rgb(135, 12, 12);
+}
+
+/* NAV */
+
+nav{
+    background-color: var(--preto-01);
+    width: 100%;
+    padding: 18px 20px;
+}
+
+.container-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-links{
+    display: flex;
+    gap: 15px;
+}
+
+.container-links a{
+    font-size: 1.1em;
+    color: var(--branco-padrao);
+    text-decoration: underline rgba(255, 255, 255, 0);
+    transition: text-decoration-color 300ms;
+}
+
+.container-links a:hover{
+    text-decoration-color: var(--branco-padrao);
+}
+
+.botao-agenda{
+    font-size: 1.3em;
+    border: none;
+    background-color: transparent;
+    color: var(--branco-padrao);
+    cursor: pointer;
+}
+
+/* HEADER */
+
+main{
+    width: 100%;
+    height: 100vh;
+}
+
+.container{
+    max-width: 1440px;
+    margin: auto;
+    padding: 0px 15px;
+}
+
+header{
+    margin: 20px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    text-align: center;
+    color: var(--preto-01);
+}
+
+header h1{
+    font-size: 1.7em;
+    font-weight: 600;
+}
+
+header p{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* ERROR */
+
+.error{
+    padding: 15px;
+    border-radius: 5px;
+    background-color: var(--vermelho-trans);
+    color: var(--vermelho);
+    font-weight: 500;
+    margin: 20px 0px;
+}
+
+/* TABLE */
+
+table{
+    color: var(--preto-01);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td{
+    padding: 15px;
+    border-top: 2px solid rgb(171, 171, 171);
+}
