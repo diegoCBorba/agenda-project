@@ -1,8 +1,14 @@
 <nav class="nav-bar">
     <div class="container-nav">
-        <button class="botao-agenda">Agenda</button>
+        <div class="botao-agenda">
+            <a href="/">Agenda</a>
+        </div>
         <div class="container-links">
-            <a href="">link</a>
+            <% if(!user){ %>
+                <a href="/login">Login</a>
+            <% }else{ %>
+                <a href="/logout">Sair</a>
+            <% } %>
         </div>
     </div>
 </nav>

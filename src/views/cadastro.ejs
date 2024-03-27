@@ -4,9 +4,28 @@
 <main>
     <div class="container">
         <header>
-            <h1>Agenda</h1>
-            <p>Seus contatos estão abaixo</p>
+            <h1>Cadastro</h1>
+            <p>Faça seu cadastro</p>
         </header>
+        <%- include('includes/messages') %>
+        <form action="/register" method="POST">
+            <input type="hidden" name="_csrf" value=<%= csrf %>>
+            <div class="form-organized">
+                <div class="input-form">
+                    <label for="email">Seu e-mail</label>
+                    <input type="email" name="email">
+                </div>
+                <div class="input-form">
+                    <label for="senha">Sua senha</label>
+                    <input type="password" name="password">
+                </div>
+                <button type="submit" class="button-form">cadastre-se</button>
+                <nav class="nav-form">
+                    <p>Quer voltar para o login?</p>
+                    <a href="/login">login</a>
+                </nav>
+            </div>
+        </form>
     </div>
 </main>
 
