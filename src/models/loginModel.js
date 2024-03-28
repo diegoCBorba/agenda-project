@@ -1,4 +1,4 @@
-const LoginModel = require('./schemaLogin')
+const { LoginModel } = require('./schemaModel')
 const validator = require('validator')
 const bcryptjs = require('bcryptjs')
 

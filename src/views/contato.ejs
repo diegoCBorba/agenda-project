@@ -1,0 +1,37 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<main>
+    <div class="container">
+        <header>
+            <h1>Contato</h1>
+            <p>Crie ou edite seu contato abaixo</p>
+        </header>
+        <%- include('includes/messages') %>
+        <form action="/contato" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <div class="form-organized">
+                <div class="input-form">
+                    <label for="name">Nome</label>
+                    <input value="<%= contato && contato.nome ? contato.nome : '' %>" type="text" name="name">
+                </div>
+                <div class="input-form">
+                    <label for="lastname">Sobrenome</label>
+                    <input value="<%= contato && contato.sobrenome ? contato.sobrenome : '' %>" type="text" name="lastname">
+                </div>
+                <div class="input-form">
+                    <label for="email">E-mail</label>
+                    <input value="<%= contato && contato.email ? contato.email : '' %>" type="email" name="email" placeholder="exemplo@email.com">
+                </div>
+                <div class="input-form">
+                    <label for="phone">Telefone</label>
+                    <input value="<%= contato && contato.telefone ? contato.telefone : '' %>" type="text" name="phone" placeholder="(xx) xxxxx-xxxx">
+                </div>
+                <button type="submit" class="button-form">Salvar</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+
+<%- include('includes/footer') %>

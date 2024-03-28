@@ -1,4 +1,4 @@
-const RegisterModel = require('./schemaLogin')
+const { LoginModel } = require('./schemaModel')
 const validator = require('validator')
 const bcryptjs = require('bcryptjs')
 
@@ -20,11 +20,11 @@ class Register{
         const salt = bcryptjs.genSaltSync()
         this.body.password = bcryptjs.hashSync(this.body.password, salt)
 
-        this.user = await RegisterModel.create(this.body)
+        this.user = await LoginModel.create(this.body)
     }
 
     async userExists(){
-        const user = await RegisterModel.findOne({ email: this.body.email })
+        const user = await LoginModel.findOne({ email: this.body.email })
         if(user) this.errors.push('Usuário já existe.')
     }
 
