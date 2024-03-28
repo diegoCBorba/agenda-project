@@ -8,18 +8,6 @@ function Contato(body){
     this.contato = null
 }
 
-Contato.buscaPorId = async function(id){
-    try{
-        if(typeof id !== 'string') return
-        if(!mongoose.Types.ObjectId.isValid(id)) return
-        const user = await ContatoModel.findById(id)
-        return user
-    }catch(e){
-        console.log(e)
-        return res.render('404')
-    }
-}
-
 Contato.prototype.register = async function(){
     this.valida()
     if(this.errors.length > 0) return;
@@ -58,6 +46,45 @@ Contato.prototype.cleanUp = function(){
         sobrenome: this.body.lastname,
         email: this.body.email,
         telefone: this.body.phone
+    }
+}
+
+Contato.prototype.edit = async function(id){
+    if(typeof id !== 'string') return
+    if(!mongoose.Types.ObjectId.isValid(id)) return
+    this.valida()
+    if(this.errors.length > 0) return
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true })
+}
+
+// Métodos estáticos
+Contato.buscaPorId = async function(id){
+    try{
+        if(typeof id !== 'string') return
+        if(!mongoose.Types.ObjectId.isValid(id)) return
+        const contato = await ContatoModel.findById(id)
+        return contato
+    }catch(e){
+        console.log(e)
+        return res.render('404')
+    }
+}
+
+Contato.buscaContatos = async function(){
+    const contatos = await ContatoModel.find()
+        .sort({ criadoEm: -1 });
+    return contatos
+}
+
+Contato.delete = async function(id){
+    try{
+        if(typeof id !== 'string') return
+        if(!mongoose.Types.ObjectId.isValid(id)) return
+        const contato = await ContatoModel.findByIdAndDelete(id)
+        return contato
+    }catch(e){
+        console.log(e)
+        return res.render('404')
     }
 }
 

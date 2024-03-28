@@ -11,24 +11,16 @@
         <section class="tabela-agenda">
             <table>
                 <tbody>
-                    <tr>
-                        <td>Diego</td>
-                        <td>Cardoso</td>
-                        <td>diegocardosobsantos@gmail.com</td>
-                        <td>(83) 98886-1216</td>
-                    </tr>
-                    <tr>
-                        <td>Diego</td>
-                        <td>Cardoso</td>
-                        <td>diegocardosobsantos@gmail.com</td>
-                        <td>(83) 98886-1216</td>
-                    </tr>
-                    <tr>
-                        <td>Diego</td>
-                        <td>Cardoso</td>
-                        <td>diegocardosobsantos@gmail.com</td>
-                        <td>(83) 98886-1216</td>
-                    </tr>
+                    <% contatos.forEach(contato => { %>
+                        <tr>
+                            <td><%= contato.nome %></td>
+                            <td><%= contato.sobrenome %></td>
+                            <td><%= contato.email %></td>
+                            <td><%= contato.telefone %></td>
+                            <td><a href="/contato/<%= contato._id %>" class="editar">Editar</a></td>
+                            <td><a href="/contato/delete/<%= contato._id %>" class="apagar">Apagar</a></td>
+                        </tr>
+                    <% }); %>
                 </tbody>
             </table>
         </section>

@@ -8,7 +8,12 @@
             <p>Crie ou edite seu contato abaixo</p>
         </header>
         <%- include('includes/messages') %>
-        <form action="/contato" method="POST">
+
+        <% if(contato._id) { %>
+            <form action="/contato/edit/<%=contato._id%>" method="POST">
+        <% }else { %>    
+            <form action="/contato" method="POST">
+        <% }; %>
             <input type="hidden" name="_csrf" value="<%= csrf %>">
             <div class="form-organized">
                 <div class="input-form">
@@ -27,7 +32,13 @@
                     <label for="phone">Telefone</label>
                     <input value="<%= contato && contato.telefone ? contato.telefone : '' %>" type="text" name="phone" placeholder="(xx) xxxxx-xxxx">
                 </div>
-                <button type="submit" class="button-form">Salvar</button>
+                <button type="submit" class="button-form">
+                    <% if(contato._id) { %>
+                        Editar
+                    <% }else { %>
+                        Salvar
+                    <% }; %>
+                </button>
             </div>
         </form>
     </div>

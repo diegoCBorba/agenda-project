@@ -66,6 +66,13 @@ body{
     text-decoration: none;
 }
 
+@media screen and (max-width: 400px){
+    .container-links{
+        flex-direction: column;
+        text-align: end;
+    }
+}
+
 /* HEADER */
 
 main{
@@ -123,16 +130,42 @@ header p{
 
 /* TABLE */
 
+.tabela-agenda{
+    overflow-x: auto;
+}
+
 table{
     color: var(--preto-01);
     border-collapse: collapse;
     width: 100%;
+    margin: auto;
 }
 
 td{
     padding: 15px;
     border-top: 2px solid rgb(171, 171, 171);
 }
+
+.editar{
+    text-decoration: underline transparent;
+    color: var(--verde);
+}
+
+.editar:hover{
+    transition: 0.3s;
+    text-decoration: underline var(--verde);
+}
+
+.apagar{
+    text-decoration: underline transparent;
+    color: var(--vermelho);
+}
+
+.apagar:hover{
+    transition: 0.3s;
+    text-decoration: underline var(--vermelho);
+}
+
 
 /* FORM */
 
